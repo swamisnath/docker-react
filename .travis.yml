@@ -1,7 +1,8 @@
 sudo: required
 services:
   - docker
-
+#s3://elasticbeanstalk-us-east-1-138402561056/.elasticbeanstalk
+# Sabirami-env.dimdidv2px.us-east-1.elasticbeanstalk.com 
 before_install:
         - docker build -t swamisub/docker-react -f Dockerfile.dev .
 
@@ -10,11 +11,11 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  region: "ap-south-1b"
-  app: "docker-react"
-  env: "Docker-React-env"
-  bucket_name: "elasticbeanstalk-ap-south-1-515260481255"
-  bucket_path: "docker-react"
+  region: "us-east-1"
+  app: "sabirami"
+  env: "Sabirami-env"
+  bucket_name: "elasticbeanstalk-us-east-1-138402561056"
+  bucket_path: "resources"
   on:
     branch: master
   access_key_id: "$AWS_ACCESS_KEY"
